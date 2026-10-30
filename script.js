@@ -162,6 +162,182 @@ document.querySelectorAll("form.short-answer").forEach((question) => {
   });
 });
 
+// ---------- Scenario simulator ----------
+
+const CATEGORIES = [
+  "Reality Capture",
+  "BIM Modelling",
+  "BIM Coordination",
+  "Simulation & Analysis",
+  "Computational & AI-assisted Design",
+];
+
+const SCENARIOS = [
+  {
+    title: "Drawings that don't match",
+    text: "The existing building's original drawings are decades old, and the site team says they no longer match what's actually there. You need accurate dimensions where the extension will connect.",
+    answer: "Reality Capture",
+    why: "Laser scanning / LiDAR captures the real shape and dimensions of the existing building, so the extension is designed around what actually exists on site.",
+    tools: "Laser scanning, LiDAR, drone photogrammetry",
+  },
+  {
+    title: "One source of information",
+    text: "The client wants every wall, door and window in the extension to record its material, fire rating and manufacturer, so drawings and schedules all come from one source.",
+    answer: "BIM Modelling",
+    why: "A BIM model is 3D geometry plus information. Each component carries its own data, and drawings and schedules are produced from the model.",
+    tools: "Revit, Archicad",
+  },
+  {
+    title: "Ducts versus beams",
+    text: "The architect, structural engineer and M&E engineer have each finished their own model. Before construction starts, you want to find any place where ducts or pipes run into beams.",
+    answer: "BIM Coordination",
+    why: "Combining the discipline models lets the team detect clashes digitally and resolve them (e.g. reroute a duct) before they become problems on site.",
+    tools: "Navisworks, BIMcollab",
+  },
+  {
+    title: "A hot west façade",
+    text: "The proposed west façade is mostly glass. The team is worried the classrooms behind it will get too much afternoon sun and need a lot of cooling.",
+    answer: "Simulation & Analysis",
+    why: "Solar and energy analysis on the BIM model show where exposure and cooling load are high, so the team can test fixes like shading before building.",
+    tools: "Energy simulation, solar analysis",
+  },
+  {
+    title: "Many possible forms",
+    text: "With a height limit, setbacks and a floor-area target, the team wants to explore many building forms quickly and compare them on daylight, energy and cost.",
+    answer: "Computational & AI-assisted Design",
+    why: "Algorithms and AI can generate and compare many options against set criteria. The designer then decides which one to take forward and refine.",
+    tools: "Dynamo, Grasshopper, generative design, Generative AI",
+  },
+  {
+    title: "Air in the courtyard",
+    text: "A new courtyard will sit between the existing building and the extension. The team wants to know whether air will move through it well or become still and stuffy.",
+    answer: "Simulation & Analysis",
+    why: "Airflow (CFD) analysis predicts how air moves around and within buildings, so the layout can be adjusted before it is built.",
+    tools: "CFD (Computational Fluid Dynamics)",
+  },
+];
+
+const sim = document.querySelector(".sim");
+if (sim) {
+  sim.hidden = false;
+  const el = (cls) => sim.querySelector(cls);
+  const play = el(".sim-play");
+  const end = el(".sim-end");
+  const choices = el(".sim-choices");
+  const feedback = el(".sim-feedback");
+  const nextButton = el(".sim-next");
+
+  let order = [];
+  let index = 0;
+  let results = [];
+
+  function shuffle(list) {
+    const copy = list.slice();
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function updateStatus() {
+    el(".sim-progress").textContent = `Scenario ${Math.min(index + 1, order.length)} of ${order.length}`;
+    const score = results.filter((r) => r.correct).length;
+    el(".sim-score").textContent = `Score: ${score} / ${results.length}`;
+  }
+
+  function showScenario({ focus = true } = {}) {
+    const scenario = order[index];
+    el(".sim-title").textContent = scenario.title;
+    el(".sim-text").textContent = scenario.text;
+    feedback.replaceChildren();
+    nextButton.hidden = true;
+
+    choices.replaceChildren(...CATEGORIES.map((name) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "option";
+      button.textContent = name;
+      button.addEventListener("click", () => choose(name));
+      return button;
+    }));
+
+    updateStatus();
+    if (focus) el(".sim-title").focus();
+  }
+
+  function choose(name) {
+    const scenario = order[index];
+    const correct = name === scenario.answer;
+    results.push({ scenario, picked: name, correct });
+
+    choices.querySelectorAll(".option").forEach((button) => {
+      button.disabled = true;
+      if (button.textContent === scenario.answer) button.classList.add(correct ? "is-correct" : "is-answer");
+      else if (button.textContent === name) button.classList.add("is-wrong");
+    });
+
+    const verdict = document.createElement("p");
+    verdict.className = "verdict " + (correct ? "correct" : "wrong");
+    verdict.textContent = correct ? "Correct!" : `Not quite. This one calls for ${scenario.answer}.`;
+    const why = document.createElement("p");
+    why.textContent = scenario.why;
+    const tools = document.createElement("p");
+    tools.className = "sim-tools";
+    tools.textContent = `Examples: ${scenario.tools}`;
+    feedback.replaceChildren(verdict, why, tools);
+
+    nextButton.textContent = index === order.length - 1 ? "See results →" : "Next scenario →";
+    nextButton.hidden = false;
+    updateStatus();
+  }
+
+  function showEnd() {
+    play.hidden = true;
+    end.hidden = false;
+    el(".sim-status").hidden = true;
+
+    const score = results.filter((r) => r.correct).length;
+    const total = results.length;
+    el(".sim-end-title").textContent = `You scored ${score} out of ${total}`;
+    el(".sim-end-text").textContent =
+      score === total ? "Excellent: you matched every situation to the right technology."
+      : score >= total - 2 ? "Good work. Look over the ones you missed below, then try again."
+      : "Worth another go. Revisit the category sections for the ones you missed below, then restart.";
+
+    el(".sim-recap").replaceChildren(...results.map((r) => {
+      const li = document.createElement("li");
+      li.className = r.correct ? "correct" : "wrong";
+      const mark = r.correct ? "✓" : "✗";
+      li.textContent = r.correct
+        ? `${mark} ${r.scenario.title}: ${r.scenario.answer}`
+        : `${mark} ${r.scenario.title}: you picked ${r.picked}; the answer is ${r.scenario.answer}`;
+      return li;
+    }));
+    el(".sim-end-title").focus();
+  }
+
+  function start({ focus = true } = {}) {
+    order = shuffle(SCENARIOS);
+    index = 0;
+    results = [];
+    play.hidden = false;
+    end.hidden = true;
+    el(".sim-status").hidden = false;
+    showScenario({ focus });
+  }
+
+  nextButton.addEventListener("click", () => {
+    index += 1;
+    if (index < order.length) showScenario();
+    else showEnd();
+  });
+
+  el(".sim-restart").addEventListener("click", () => start());
+
+  start({ focus: false });
+}
+
 // ---------- Full-size picture viewer ----------
 const lightbox = document.querySelector(".lightbox");
 const lightboxImg = lightbox.querySelector("img");

@@ -24,7 +24,8 @@ One page (`index.html`) showing one section at a time, built once from the Lesso
 2. **Intro**: lesson title, lesson outcomes, and the opening scenario (new extension building) with its picture.
 3. **Five lesson sections**, one per category, each with its slide picture, a short explanation, and one check-in question on its key idea:
    Reality Capture · BIM Modelling · BIM Coordination · Simulation & Analysis · Computational & AI-assisted Design
-4. **Quick-reference table**: every category, what it involves, and examples (from slide 15). On phones it turns into stacked cards.
+4. **Scenario simulator**: 6 situations from the extension project, shown one at a time in random order. Students pick which of the 5 categories helps most, see right/wrong with the reason and example tools, and get a score and recap at the end. Restart replays it. Nothing is saved.
+5. **Quick-reference table**: every category, what it involves, and examples (from slide 15). On phones it turns into stacked cards.
 
 Left out: admin slides (module outline, submission, Lesson 6/7 notes, lesson plan), the simulator game, and "The End".
 

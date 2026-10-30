@@ -45,6 +45,7 @@
         <li><a href="#bim-coordination">BIM Coordination</a></li>
         <li><a href="#simulation-analysis">Simulation &amp; Analysis</a></li>
         <li><a href="#computational-ai">Computational &amp; AI</a></li>
+        <li><a href="#simulator">Simulator</a></li>
         <li><a href="#quick-reference">Quick reference</a></li>
       </ol>
     </nav>
@@ -328,6 +329,43 @@
           <button type="button" class="option" data-correct>The designer</button>
           <div class="result" aria-live="polite"></div>
         </fieldset>
+      </div>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </section>
+
+    <!-- Scenario simulator -->
+    <section class="section" id="simulator">
+      <p class="eyebrow">Practice</p>
+      <h2>Scenario simulator</h2>
+      <p class="lead">Recommend the right technology for each situation.</p>
+      <p>You're on the design team for the new extension. Situations will come up one at a time. For each one, pick the Digital Design technology category that helps most. There are 6 scenarios, and you can replay as often as you like.</p>
+
+      <noscript><p class="callout">The simulator needs JavaScript. Turn it on in your browser to try it.</p></noscript>
+
+      <div class="sim" hidden>
+        <div class="sim-status">
+          <span class="sim-progress"></span>
+          <span class="sim-score"></span>
+        </div>
+
+        <div class="sim-play">
+          <h3 class="sim-title" tabindex="-1"></h3>
+          <p class="sim-text"></p>
+          <p class="sim-ask">Which technology category helps most?</p>
+          <div class="sim-choices"></div>
+          <div class="sim-feedback" aria-live="polite"></div>
+          <button type="button" class="sim-next" hidden>Next scenario →</button>
+        </div>
+
+        <div class="sim-end" hidden>
+          <h3 class="sim-end-title" tabindex="-1"></h3>
+          <p class="sim-end-text"></p>
+          <ol class="sim-recap"></ol>
+          <div class="sim-end-actions">
+            <button type="button" class="sim-restart">↻ Restart</button>
+            <a class="continue" href="#quick-reference">Continue to Quick reference →</a>
+          </div>
+        </div>
       </div>
       <a class="back-to-top" href="#top">Back to top</a>
     </section>

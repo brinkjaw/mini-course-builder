@@ -26,6 +26,9 @@
 
 * { box-sizing: border-box; }
 
+/* Keep hidden things hidden, even when a rule below sets display. */
+[hidden] { display: none !important; }
+
 html { scroll-padding-top: 5rem; }
 
 body {
@@ -215,6 +218,32 @@ li { margin-bottom: 0.35rem; }
   text-decoration: none;
   font-weight: 600;
 }
+
+/* Scenario simulator */
+.sim { border: 1px solid var(--border); border-radius: 6px; padding: 1rem; margin-top: 1.5rem; }
+.sim-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+.sim-title, .sim-end-title { margin-top: 1rem; }
+.sim-title:focus, .sim-end-title:focus { outline: none; }
+.sim-text { background: var(--surface); border-left: 4px solid var(--accent); padding: 0.75rem 1rem; border-radius: 4px; }
+.sim-ask { font-weight: 600; margin-bottom: 0; }
+.sim-feedback:empty { display: none; }
+.sim-feedback { margin-top: 0.75rem; }
+.sim-feedback p { margin: 0 0 0.4rem; }
+.sim-tools { color: var(--muted); font-size: 0.95rem; }
+.sim-next { margin-top: 0.5rem; font-weight: 600; }
+.sim-recap { padding-left: 1.25rem; }
+.sim-recap li.correct { color: var(--correct); }
+.sim-recap li.wrong { color: var(--wrong); }
+.sim-end-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.sim-end-actions .continue { margin-top: 0; }
 
 /* Quick-reference table */
 .ref-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
