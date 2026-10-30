@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E227 Lesson 5 — Digital Design Technologies</title>
+  <meta name="description" content="E227 Lesson 5 mini-course: the categories of Digital Design technologies and how they support a building design project.">
+  <script>
+    // Apply the saved theme before the page draws, so it doesn't flash light then dark.
+    document.documentElement.classList.add("js");
+    try {
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-code">E227 · Lesson 5</span>
+        <span class="brand-name">Technologies for Integrated Digital Delivery</span>
+      </a>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark theme">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+          <span class="theme-label">Dark</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          <span>Menu</span>
+        </button>
+      </div>
+    </div>
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <ol>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#reality-capture">Reality Capture</a></li>
+        <li><a href="#bim-modelling">BIM Modelling</a></li>
+        <li><a href="#bim-coordination">BIM Coordination</a></li>
+        <li><a href="#simulation-analysis">Simulation &amp; Analysis</a></li>
+        <li><a href="#computational-ai">Computational &amp; AI</a></li>
+        <li><a href="#quick-reference">Quick reference</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- Intro -->
+    <section class="section intro" id="intro">
+      <p class="eyebrow">LLP1 · Lesson 5</p>
+      <h1>Introduction to Integrated Digital Delivery (IDD) and Application of Technologies for Digital Design and Digital Fabrication</h1>
+
+      <div class="card outcomes">
+        <h2>Lesson outcomes</h2>
+        <p>By the end of this lesson, you will be able to:</p>
+        <ul>
+          <li>Explain how Digital Design technologies support the building design process.</li>
+          <li>Identify different Digital Design technologies and their applications.</li>
+          <li>Recommend suitable Digital Design technologies for a given project scenario.</li>
+        </ul>
+      </div>
+
+      <h2>Opening scenario: A campus in growth</h2>
+      <p>An existing building needs more space, so a <strong>new extension building</strong> will be developed and connected to it.</p>
+      <p>The challenge is not simply to design another building. The new extension needs to <strong>fit the existing site and building, connect properly with it, coordinate the different disciplines, and perform well</strong>.</p>
+
+      <ul class="goal-grid">
+        <li><strong>Fit the existing site and building</strong><span>Work with the real conditions on site.</span></li>
+        <li><strong>Connect properly with it</strong><span>Ensure seamless physical and functional integration.</span></li>
+        <li><strong>Coordinate different disciplines</strong><span>Bring architectural, structural, M&amp;E and other designs together.</span></li>
+        <li><strong>Perform well</strong><span>Achieve environmental, functional and user needs.</span></li>
+      </ul>
+
+      <figure class="figure">
+        <a class="zoom" href="images/opening-scenario.jpg">
+          <img src="images/opening-scenario.jpg" width="1450" height="1085" loading="lazy"
+               alt="Illustration of an existing campus building joined by an integrated connection to a proposed glass extension, with four goals: fit the existing site and building, connect properly with it, coordinate different disciplines, and perform well.">
+        </a>
+        <figcaption>Tap the picture to see it full size.</figcaption>
+      </figure>
+
+      <p class="callout">As part of the design team, consider how different <strong>Digital Design technologies</strong> could help the team develop, evaluate and coordinate the proposed design. The next five sections each cover one category.</p>
+    </section>
+
+    <!-- 1. Reality Capture -->
+    <section class="section" id="reality-capture">
+      <p class="eyebrow">Category 1 of 5</p>
+      <h2>Reality Capture</h2>
+      <p class="lead">Digitise existing sites and physical environments.</p>
+
+      <p><strong>Reality Capture</strong> uses digital technologies to <strong>capture the existing physical environment and convert it into digital information</strong> that can support design.</p>
+      <p>Before designing the new extension, the design team needs accurate information about the <strong>existing building and surrounding site</strong>, especially where the new and existing buildings will connect.</p>
+
+      <h3>Technologies</h3>
+      <ul class="tech-list">
+        <li><strong>Laser scanning / LiDAR</strong> captures the shape and dimensions of the physical environment.</li>
+        <li><strong>Photogrammetry</strong> creates digital information from multiple photographs.</li>
+        <li><strong>Drones</strong> can capture site imagery and information from above.</li>
+        <li><strong>360° imaging</strong> records the site in all directions.</li>
+      </ul>
+
+      <h3>How it works</h3>
+      <ol class="steps">
+        <li><strong>Existing building &amp; site</strong><span>The physical environment.</span></li>
+        <li><strong>Capture on site</strong><span>Laser scanning / LiDAR, photogrammetry, drones.</span></li>
+        <li><strong>Digital representation</strong><span>A point cloud or digital site.</span></li>
+        <li><strong>Design in context</strong><span>Use the captured information to design the new extension.</span></li>
+      </ol>
+
+      <figure class="figure">
+        <a class="zoom" href="images/reality-capture.jpg">
+          <img src="images/reality-capture.jpg" width="1450" height="1085" loading="lazy"
+               alt="Four-step Reality Capture infographic: an existing building and site, capture on site with a laser scanner and drone, a point cloud digital representation, and the new extension designed in context.">
+        </a>
+        <figcaption>Tap the picture to see it full size.</figcaption>
+      </figure>
+
+      <p class="callout"><strong>Key idea:</strong> Reality Capture provides designers with digital information about what actually exists on site.</p>
+      <p class="think"><strong>Think about it:</strong> Why might the design team not rely solely on the original drawings of the existing building?</p>
+
+      <div class="self-check" data-check>
+        <h3>Self-check</h3>
+        <fieldset class="question">
+          <legend>The team needs accurate dimensions of the existing building where the extension will connect. Which technology fits best?</legend>
+          <button type="button" class="option" data-correct data-feedback="Correct. Laser scanning / LiDAR captures the shape and dimensions of the physical environment.">Laser scanning / LiDAR</button>
+          <button type="button" class="option" data-feedback="Not quite. Energy simulation evaluates how a design will perform. It doesn't measure what already exists.">Energy simulation</button>
+          <button type="button" class="option" data-feedback="Not quite. Clash detection checks models against each other. It needs the existing building captured first.">Clash detection</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="question">
+          <legend>What does Reality Capture typically produce?</legend>
+          <button type="button" class="option" data-feedback="Not quite. A clash report comes from BIM Coordination.">A clash report</button>
+          <button type="button" class="option" data-correct data-feedback="Correct. Captured data becomes a point cloud or digital site that designers can work with.">A point cloud or digital site</button>
+          <button type="button" class="option" data-feedback="Not quite. Shortlisting design options is part of Computational &amp; AI-assisted Design.">A shortlist of design options</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+      </div>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </section>
+
+    <!-- 2. BIM Modelling -->
+    <section class="section" id="bim-modelling">
+      <p class="eyebrow">Category 2 of 5</p>
+      <h2>BIM Modelling</h2>
+      <p class="lead">Create an information-rich digital building model.</p>
+
+      <p>The new extension is designed using a BIM model placed in its real site context, with the existing building coming from Reality Capture.</p>
+      <p class="callout"><strong>BIM = 3D geometry + information.</strong> A digital building model contains both the physical and non-physical information about its components.</p>
+
+      <h3>Example: information stored in the model</h3>
+      <dl class="data-cards">
+        <div><dt>Wall</dt><dd>Material: concrete (200 mm) · Finish: paint · Fire rating: 2 hours · Thermal U-value: 0.45 W/m²K</dd></div>
+        <div><dt>Door</dt><dd>Type: single leaf · Size: 900 × 2100 mm · Fire rating: 1 hour · Material: timber · Manufacturer</dd></div>
+        <div><dt>Window</dt><dd>Type: curtain wall · 1800 × 1500 mm · Glazing: Low-E (double) · U-value: 1.6 W/m²K · SHGC: 0.28</dd></div>
+        <div><dt>Air-conditioning equipment</dt><dd>Type: FCU (ceiling cassette) · Capacity: 7.1 kW · Manufacturer · Model · Location: Level 2</dd></div>
+      </dl>
+      <p>A project can include an architecture model, a structural model and an M&amp;E model, plus information (data) and drawings, schedules and more.</p>
+      <p><strong>Example tools:</strong> Revit, Archicad.</p>
+
+      <figure class="figure">
+        <a class="zoom" href="images/bim-modelling.jpg">
+          <img src="images/bim-modelling.jpg" width="1450" height="1085" loading="lazy"
+               alt="BIM Modelling infographic: a cutaway BIM model of the new extension beside the scanned existing building, with callouts showing the data stored for a wall, door, window and air-conditioning unit.">
+        </a>
+        <figcaption>Tap the picture to see it full size.</figcaption>
+      </figure>
+
+      <p class="think"><strong>Think about it:</strong> What information could be stored in the BIM model besides the shape and dimensions of the building?</p>
+
+      <div class="self-check" data-check>
+        <h3>Self-check</h3>
+        <fieldset class="question">
+          <legend>Which statement best describes a BIM model?</legend>
+          <button type="button" class="option" data-feedback="Not quite. A BIM model is more than a picture. Each component carries information too.">A realistic 3D picture used for presentations</button>
+          <button type="button" class="option" data-correct data-feedback="Correct. BIM = 3D geometry + information about each component.">3D geometry plus information about each component</button>
+          <button type="button" class="option" data-feedback="Not quite. Drawings can be produced from a BIM model, but the model itself is 3D and information-rich.">A set of 2D drawings</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="question">
+          <legend>Which of these is non-physical information that a BIM model can store about a wall?</legend>
+          <button type="button" class="option" data-feedback="Not quite. Height is part of the wall's geometry (shape and dimensions).">Its height</button>
+          <button type="button" class="option" data-feedback="Not quite. Position is part of the geometry.">Its position on the floor plan</button>
+          <button type="button" class="option" data-correct data-feedback="Correct. A fire rating is information attached to the component, beyond its shape and size.">Its fire rating of 2 hours</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+      </div>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </section>
+
+    <!-- 3. BIM Coordination -->
+    <section class="section" id="bim-coordination">
+      <p class="eyebrow">Category 3 of 5</p>
+      <h2>BIM Coordination</h2>
+      <p class="lead">Combine disciplines and detect design conflicts.</p>
+
+      <p>Each discipline builds its own model. Coordination combines them so problems show up on screen instead of on site.</p>
+      <ul class="tech-list">
+        <li><strong>Architectural model:</strong> walls, rooms, doors, ceilings, finishes, etc.</li>
+        <li><strong>Structural model:</strong> columns, beams, slabs, etc.</li>
+        <li><strong>M&amp;E model:</strong> ducts, pipes, cable trays, equipment, etc.</li>
+      </ul>
+
+      <h3>How it works</h3>
+      <ol class="steps">
+        <li><strong>Combine models</strong><span>Architectural, structural and M&amp;E models are joined into one combined BIM model.</span></li>
+        <li><strong>Design conflict detected</strong><span>Example clash: an air-conditioning duct intersects a structural beam.</span></li>
+        <li><strong>Review &amp; resolve</strong><span>Adjust the design to avoid the conflict, e.g. reroute the duct.</span></li>
+        <li><strong>Coordinated design</strong><span>Disciplines work together for a clash-free design.</span></li>
+      </ol>
+
+      <h3>Benefits</h3>
+      <ul class="chips">
+        <li>Identify clashes early</li>
+        <li>Improve collaboration</li>
+        <li>Save time and cost</li>
+        <li>Deliver a higher quality design</li>
+      </ul>
+      <p><strong>Example tools:</strong> Navisworks, BIMcollab.</p>
+
+      <figure class="figure">
+        <a class="zoom" href="images/bim-coordination.jpg">
+          <img src="images/bim-coordination.jpg" width="1450" height="1085" loading="lazy"
+               alt="BIM Coordination infographic: architectural, structural and M&amp;E models combined into one BIM model, a clash where an air-conditioning duct intersects a beam, and the duct rerouted for a coordinated design.">
+        </a>
+        <figcaption>Tap the picture to see it full size.</figcaption>
+      </figure>
+
+      <p class="callout"><strong>Key idea:</strong> Find design conflicts digitally before they become physical problems on site.</p>
+
+      <div class="self-check" data-check>
+        <h3>Self-check</h3>
+        <fieldset class="question">
+          <legend>In the combined model, an air-conditioning duct passes through a structural beam. What is this called?</legend>
+          <button type="button" class="option" data-correct data-feedback="Correct. It's a clash: a design conflict between disciplines, found digitally so it can be fixed before construction.">A clash</button>
+          <button type="button" class="option" data-feedback="Not quite. Daylight issues come from Simulation &amp; Analysis.">A daylight issue</button>
+          <button type="button" class="option" data-feedback="Not quite. This is a conflict between the M&amp;E and structural designs, not a scanning problem.">A point cloud error</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="question">
+          <legend>Which pair of tools is used for BIM Coordination?</legend>
+          <button type="button" class="option" data-feedback="Not quite. Revit and Archicad are BIM Modelling tools.">Revit, Archicad</button>
+          <button type="button" class="option" data-correct data-feedback="Correct. Navisworks and BIMcollab combine disciplines and detect design conflicts.">Navisworks, BIMcollab</button>
+          <button type="button" class="option" data-feedback="Not quite. Dynamo and Grasshopper are Computational Design tools.">Dynamo, Grasshopper</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+      </div>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </section>
+
+    <!-- 4. Simulation & Analysis -->
+    <section class="section" id="simulation-analysis">
+      <p class="eyebrow">Category 4 of 5</p>
+      <h2>Simulation &amp; Analysis</h2>
+      <p class="lead">Evaluate design performance before it is built.</p>
+
+      <p>Using the coordinated BIM model of the new extension, the team can test how the building will perform.</p>
+      <dl class="data-cards">
+        <div><dt>Daylight analysis</dt><dd>Will the spaces receive sufficient natural daylight?</dd></div>
+        <div><dt>Energy / thermal analysis</dt><dd>How might the design affect energy use and indoor thermal comfort?</dd></div>
+        <div><dt>Solar analysis</dt><dd>Which parts of the building receive greater solar exposure?</dd></div>
+        <div><dt>Airflow (CFD) analysis</dt><dd>How might air move around and within the building? CFD stands for Computational Fluid Dynamics.</dd></div>
+      </dl>
+
+      <h3>How it works</h3>
+      <ol class="steps">
+        <li><strong>Run simulations</strong><span>Test different design options using the BIM model: daylight, energy, solar, airflow.</span></li>
+        <li><strong>Evaluate results</strong><span>Identify issues and compare options, e.g. high solar exposure on the west façade, or insufficient daylight in some areas.</span></li>
+        <li><strong>Improve the design</strong><span>Refine the design based on the analysis, e.g. add shading.</span></li>
+      </ol>
+
+      <h3>Benefits</h3>
+      <ul class="chips">
+        <li>Better performance</li>
+        <li>Lower cost risk</li>
+        <li>Healthier and more comfortable spaces</li>
+      </ul>
+      <p><strong>Examples:</strong> energy simulation, daylight analysis, CFD.</p>
+
+      <figure class="figure">
+        <a class="zoom" href="images/simulation-analysis.jpg">
+          <img src="images/simulation-analysis.jpg" width="1450" height="1085" loading="lazy"
+               alt="Simulation and Analysis infographic: daylight, energy and thermal, solar and airflow (CFD) analyses shown as colour heat maps on the new extension, then three steps: run simulations, evaluate results, improve the design with shading.">
+        </a>
+        <figcaption>Tap the picture to see it full size.</figcaption>
+      </figure>
+
+      <p class="callout"><strong>Key idea:</strong> Test the building digitally before building it physically.</p>
+
+      <div class="self-check" data-check>
+        <h3>Self-check</h3>
+        <fieldset class="question">
+          <legend>The team wants to know which façade of the extension gets the most sun. Which analysis should they run?</legend>
+          <button type="button" class="option" data-feedback="Not quite. Daylight analysis checks whether indoor spaces get enough natural light.">Daylight analysis</button>
+          <button type="button" class="option" data-correct data-feedback="Correct. Solar analysis shows which parts of the building receive greater solar exposure.">Solar analysis</button>
+          <button type="button" class="option" data-feedback="Not quite. CFD analysis studies how air moves around and within the building.">Airflow (CFD) analysis</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="question">
+          <legend>The analysis shows high solar exposure on the west façade. What is a sensible next step?</legend>
+          <button type="button" class="option" data-correct data-feedback="Correct. Refine the design based on the analysis, e.g. add shading, then test again.">Refine the design, e.g. add shading</button>
+          <button type="button" class="option" data-feedback="Not quite. The point of simulating is to fix problems before construction, not after.">Build it and fix it on site later</button>
+          <button type="button" class="option" data-feedback="Not quite. A new scan records what exists. It won't improve the proposed design.">Scan the existing building again</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+      </div>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </section>
+
+    <!-- 5. Computational & AI-assisted Design -->
+    <section class="section" id="computational-ai">
+      <p class="eyebrow">Category 5 of 5</p>
+      <h2>Computational &amp; AI-assisted Design</h2>
+      <p class="lead">Use algorithms and AI to explore or improve design solutions.</p>
+
+      <h3>How it works</h3>
+      <ol class="steps">
+        <li><strong>Requirements &amp; constraints</strong><span>Define the design problem: available site, required floor area and spaces, connection to the existing building, daylight and solar exposure requirements, sustainability targets, and other constraints (e.g. height limit, setbacks, budget).</span></li>
+        <li><strong>Generate design options</strong><span>Use algorithms and AI to explore multiple possibilities, e.g. a compact form, a curved form with shading, an L-shaped layout, a stepped form.</span></li>
+        <li><strong>Evaluate and compare</strong><span>Assess options using different criteria: daylight, energy, usable floor area, connection and integration, estimated cost.</span></li>
+        <li><strong>Designer decides and refines</strong><span>Use the insights to select and improve the design.</span></li>
+      </ol>
+
+      <h3>Example tools</h3>
+      <dl class="data-cards">
+        <div><dt>Dynamo</dt><dd>Visual programming for BIM.</dd></div>
+        <div><dt>Grasshopper</dt><dd>Parametric design in Rhino.</dd></div>
+        <div><dt>Generative Design</dt><dd>Generate and evaluate multiple design options.</dd></div>
+        <div><dt>Generative AI</dt><dd>AI-assisted ideation and visualisation.</dd></div>
+      </dl>
+
+      <figure class="figure">
+        <a class="zoom" href="images/computational-ai-design.jpg">
+          <img src="images/computational-ai-design.jpg" width="947" height="684" loading="lazy"
+               alt="Computational and AI-assisted Design infographic: requirements and constraints, four generated design options A to D, a comparison table of daylight, energy, floor area, connection and cost, and the designer selecting and refining option C.">
+        </a>
+        <figcaption>Tap the picture to see it full size.</figcaption>
+      </figure>
+
+      <p class="callout"><strong>Key idea:</strong> Digital tools can help designers explore more possibilities, but the designer remains responsible for evaluating and making design decisions.</p>
+
+      <div class="self-check" data-check>
+        <h3>Self-check</h3>
+        <fieldset class="question">
+          <legend>After the AI tool generates four design options, who decides which one to take forward?</legend>
+          <button type="button" class="option" data-feedback="Not quite. The tool helps explore and compare options, but it doesn't take responsibility for the decision.">The AI tool</button>
+          <button type="button" class="option" data-feedback="Not quite. Scores inform the choice, but someone still has to weigh them against the project's needs.">Whichever option scores highest automatically</button>
+          <button type="button" class="option" data-correct data-feedback="Correct. The designer remains responsible for evaluating and making design decisions.">The designer</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+        <fieldset class="question">
+          <legend>What is Grasshopper?</legend>
+          <button type="button" class="option" data-correct data-feedback="Correct. Grasshopper is used for parametric design in Rhino.">A parametric design tool in Rhino</button>
+          <button type="button" class="option" data-feedback="Not quite. That describes BIM Coordination tools such as Navisworks.">A clash detection tool</button>
+          <button type="button" class="option" data-feedback="Not quite. That's Reality Capture.">A laser scanner</button>
+          <p class="feedback" aria-live="polite"></p>
+        </fieldset>
+      </div>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </section>
+
+    <!-- Quick reference -->
+    <section class="section" id="quick-reference">
+      <p class="eyebrow">Summary</p>
+      <h2>Quick reference</h2>
+      <p>Various technologies can be applied in Digital Design. They can be broadly grouped into these categories:</p>
+
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th scope="col">Category</th>
+            <th scope="col">What is involved</th>
+            <th scope="col">Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><a href="#bim-modelling">BIM Modelling</a></th>
+            <td data-label="What is involved">Create an information-rich digital building model</td>
+            <td data-label="Examples">Revit, Archicad</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="#bim-coordination">BIM Coordination</a></th>
+            <td data-label="What is involved">Combine disciplines and detect design conflicts</td>
+            <td data-label="Examples">Navisworks, BIMcollab</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="#reality-capture">Reality Capture</a></th>
+            <td data-label="What is involved">Digitise existing sites and physical environments</td>
+            <td data-label="Examples">Laser scanning, LiDAR, drone photogrammetry</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="#simulation-analysis">Simulation &amp; Analysis</a></th>
+            <td data-label="What is involved">Evaluate design performance before it is built</td>
+            <td data-label="Examples">Energy simulation, daylight analysis, CFD</td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="#computational-ai">Computational &amp; AI-assisted Design</a></th>
+            <td data-label="What is involved">Use algorithms and AI to explore or improve design solutions</td>
+            <td data-label="Examples">Dynamo, Grasshopper, generative design, Generative AI</td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>E227 Technologies for Integrated Digital Delivery · Lesson 5. Infographics generated using Microsoft Copilot based on a custom prompt developed by the author.</p>
+  </footer>
+
+  <dialog class="lightbox" aria-label="Full-size picture">
+    <button type="button" class="lightbox-close" aria-label="Close">×</button>
+    <img alt="">
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

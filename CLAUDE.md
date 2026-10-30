@@ -6,9 +6,11 @@
 - No build step: files are opened or served exactly as written.
 
 ## Project Structure
-The project is nearly empty for now.
-- `CLAUDE.md` — this file, at the top level of the repository.
-- New HTML, CSS, and JavaScript files will be added as the project grows; update this section when they are.
+- `index.html` — the whole course: header, all sections, and their content.
+- `styles.css` — all styling, with light/dark colours defined at the top.
+- `script.js` — theme switch, section switching, self-checks, full-size picture viewer.
+- `images/` — slide pictures extracted from the Lesson 5 PDF (the deck itself is not in the repo).
+- `CLAUDE.md` — this file.
 
 ## Key Requirements
 1. Every page must be responsive and work on desktop, tablet, and phone.
@@ -17,7 +19,7 @@ The project is nearly empty for now.
 ## Feature Plan
 
 ### Site structure
-One long scrolling page (`index.html`), built once from the Lesson 5 slides (E227, PDF).
+One page (`index.html`) showing one section at a time, built once from the Lesson 5 slides (E227, PDF).
 1. **Header**: "E227 Technologies for Integrated Digital Delivery — Lesson 5", the light/dark theme switch, and a menu of section links. No school logo.
 2. **Intro**: lesson title, lesson outcomes, and the opening scenario (new extension building) with its picture.
 3. **Five lesson sections**, one per category, each with its slide picture, a short explanation, and a 1–2 question self-check:
@@ -27,13 +29,15 @@ One long scrolling page (`index.html`), built once from the Lesson 5 slides (E22
 Left out: admin slides (module outline, submission, Lesson 6/7 notes, lesson plan), the simulator game, and "The End".
 
 ### How students move between sections
-- Scroll straight down, or jump to a section using the header's menu (a menu button on phones).
-- The header stays at the top while scrolling, and a "Back to top" link ends each section.
+- JavaScript shows one section at a time; no separate pages.
+- Move with the header's menu (a menu button on phones) or the Previous/Next links at the end of each section.
+- The address bar tracks the section (e.g. `#bim-coordination`), so the Back button and shared links work.
+- Without JavaScript, all sections show as one long page.
 - Tapping a picture opens it full size.
 
 ### Phases
 **Phase 1: Course from the slides**
-- Build the page above in plain HTML, CSS, and JS: responsive, and light theme by default.
+- Build the page above in plain HTML, CSS, and JS: responsive, and light theme by default. Styling stays plain until it works; design comes later.
 - Self-checks: tap an answer to see right/wrong plus a one-line reason. Nothing is saved or graded.
 - The teacher reviews the self-check questions before they're final.
 
