@@ -174,17 +174,47 @@ li { margin-bottom: 0.35rem; }
 .figure a { display: block; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
 .figure figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.35rem; }
 
-/* Self-checks */
-.self-check { margin-top: 2rem; border-top: 1px solid var(--border); }
+/* Check-in question */
+.check-in { margin-top: 2rem; border-top: 1px solid var(--border); }
 .question { border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem 1rem 1rem; margin: 1rem 0 0; }
-.question legend { font-weight: 600; padding: 0 0.25rem; }
+.question legend, .question label { font-weight: 600; padding: 0 0.25rem; }
+.question label { display: block; padding: 0; }
 .option { display: block; width: 100%; text-align: left; margin-top: 0.5rem; padding: 0.6rem 0.8rem; }
-.option.is-correct { border-color: var(--correct); color: var(--correct); font-weight: 600; }
-.option.is-wrong { border-color: var(--wrong); color: var(--wrong); text-decoration: line-through; }
-.option:disabled { cursor: default; }
-.feedback { margin: 0.6rem 0 0; min-height: 1.2em; }
-.feedback.correct { color: var(--correct); }
-.feedback.wrong { color: var(--wrong); }
+.option.is-correct, .option.is-answer { border: 2px solid var(--correct); color: var(--correct); font-weight: 600; }
+.option.is-wrong { border: 2px solid var(--wrong); color: var(--wrong); text-decoration: line-through; }
+.option:disabled, button:disabled { cursor: default; }
+.option:disabled:not(.is-correct, .is-wrong, .is-answer) { color: var(--muted); }
+
+.answer-row { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+.answer-row input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+}
+.answer-row input.is-correct { border: 2px solid var(--correct); }
+.answer-row input.is-wrong { border: 2px solid var(--wrong); }
+
+.result:empty { display: none; }
+.result { margin-top: 0.75rem; }
+.result p { margin: 0 0 0.4rem; }
+.verdict { font-weight: 700; }
+.verdict.correct { color: var(--correct); }
+.verdict.wrong { color: var(--wrong); }
+.continue {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 600;
+}
 
 /* Quick-reference table */
 .ref-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }

@@ -22,7 +22,7 @@
 One page (`index.html`) showing one section at a time, built once from the Lesson 5 slides (E227, PDF).
 1. **Header**: "E227 Technologies for Integrated Digital Delivery — Lesson 5", the light/dark theme switch, and a menu of section links. No school logo.
 2. **Intro**: lesson title, lesson outcomes, and the opening scenario (new extension building) with its picture.
-3. **Five lesson sections**, one per category, each with its slide picture, a short explanation, and a 1–2 question self-check:
+3. **Five lesson sections**, one per category, each with its slide picture, a short explanation, and one check-in question on its key idea:
    Reality Capture · BIM Modelling · BIM Coordination · Simulation & Analysis · Computational & AI-assisted Design
 4. **Quick-reference table**: every category, what it involves, and examples (from slide 15). On phones it turns into stacked cards.
 
@@ -38,8 +38,8 @@ Left out: admin slides (module outline, submission, Lesson 6/7 notes, lesson pla
 ### Phases
 **Phase 1: Course from the slides**
 - Build the page above in plain HTML, CSS, and JS: responsive, and light theme by default. Styling stays plain until it works; design comes later.
-- Self-checks: tap an answer to see right/wrong plus a one-line reason. Nothing is saved or graded.
-- The teacher reviews the self-check questions before they're final.
+- Check-ins: one per technology section, multiple choice or short answer, one try. The page shows right/wrong, the correct answer and a one-line reason, then a "Continue to…" link. Prev/Next always work. Nothing is saved or graded.
+- The teacher reviews the check-in questions before they're final.
 
 **Phase 2: Check and polish**
 - Test on desktop, tablet, and phone, in both themes.

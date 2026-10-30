@@ -94,25 +94,71 @@ menuButton.addEventListener("click", () => {
   menuButton.setAttribute("aria-expanded", String(open));
 });
 
-// ---------- Self-checks ----------
-document.querySelectorAll(".question").forEach((question) => {
+// ---------- Check-in questions (one try each) ----------
+
+// Show right/wrong, the explanation, and a link on to the next section.
+function showResult(question, correct, correctAnswer) {
+  const result = question.querySelector(".result");
+  const section = question.closest(".section");
+  const next = sections[sections.indexOf(section) + 1];
+
+  const verdict = document.createElement("p");
+  verdict.className = "verdict " + (correct ? "correct" : "wrong");
+  verdict.textContent = correct ? "Correct!" : `Not quite. The answer is: ${correctAnswer}`;
+
+  const explain = document.createElement("p");
+  explain.textContent = question.dataset.explain;
+
+  result.replaceChildren(verdict, explain);
+  if (next) {
+    const link = document.createElement("a");
+    link.className = "continue";
+    link.href = "#" + next.id;
+    link.textContent = `Continue to ${navLabel(next)} →`;
+    result.appendChild(link);
+  }
+}
+
+// Multiple choice: the first click locks the question.
+document.querySelectorAll("fieldset.question").forEach((question) => {
   const options = Array.from(question.querySelectorAll(".option"));
-  const feedback = question.querySelector(".feedback");
+  const right = options.find((o) => o.hasAttribute("data-correct"));
 
   options.forEach((option) => {
     option.addEventListener("click", () => {
-      const correct = option.hasAttribute("data-correct");
-      feedback.textContent = option.dataset.feedback;
-      feedback.className = "feedback " + (correct ? "correct" : "wrong");
-      if (correct) {
-        option.classList.add("is-correct");
-        options.forEach((o) => { o.disabled = true; });
-      } else {
-        // Wrong answers stay marked so the student can try again.
-        option.classList.add("is-wrong");
-        option.disabled = true;
-      }
+      const correct = option === right;
+      options.forEach((o) => { o.disabled = true; });
+      option.classList.add(correct ? "is-correct" : "is-wrong");
+      if (!correct) right.classList.add("is-answer");
+      showResult(question, correct, right.textContent);
     });
+  });
+});
+
+// Short answer: compare against the accepted answers, ignoring case,
+// punctuation, extra spaces and a leading "a", "an" or "the".
+function normalise(text) {
+  return text.toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^(a|an|the) /, "");
+}
+
+document.querySelectorAll("form.short-answer").forEach((question) => {
+  const input = question.querySelector("input");
+  const button = question.querySelector("button");
+  const accepted = question.dataset.answers.split("|").map(normalise);
+
+  question.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const answer = normalise(input.value);
+    if (!answer) return;
+    const correct = accepted.includes(answer);
+    input.disabled = true;
+    button.disabled = true;
+    input.classList.add(correct ? "is-correct" : "is-wrong");
+    showResult(question, correct, question.dataset.display);
   });
 });
 

@@ -125,21 +125,14 @@
       <p class="callout"><strong>Key idea:</strong> Reality Capture provides designers with digital information about what actually exists on site.</p>
       <p class="think"><strong>Think about it:</strong> Why might the design team not rely solely on the original drawings of the existing building?</p>
 
-      <div class="self-check" data-check>
-        <h3>Self-check</h3>
-        <fieldset class="question">
-          <legend>The team needs accurate dimensions of the existing building where the extension will connect. Which technology fits best?</legend>
-          <button type="button" class="option" data-correct data-feedback="Correct. Laser scanning / LiDAR captures the shape and dimensions of the physical environment.">Laser scanning / LiDAR</button>
-          <button type="button" class="option" data-feedback="Not quite. Energy simulation evaluates how a design will perform. It doesn't measure what already exists.">Energy simulation</button>
-          <button type="button" class="option" data-feedback="Not quite. Clash detection checks models against each other. It needs the existing building captured first.">Clash detection</button>
-          <p class="feedback" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="question">
-          <legend>What does Reality Capture typically produce?</legend>
-          <button type="button" class="option" data-feedback="Not quite. A clash report comes from BIM Coordination.">A clash report</button>
-          <button type="button" class="option" data-correct data-feedback="Correct. Captured data becomes a point cloud or digital site that designers can work with.">A point cloud or digital site</button>
-          <button type="button" class="option" data-feedback="Not quite. Shortlisting design options is part of Computational &amp; AI-assisted Design.">A shortlist of design options</button>
-          <p class="feedback" aria-live="polite"></p>
+      <div class="check-in">
+        <h3>Check-in</h3>
+        <fieldset class="question" id="check-reality-capture" data-explain="Reality Capture digitises the existing building and site, so the extension can be designed around real conditions, not just old drawings.">
+          <legend>Why does the design team use Reality Capture before designing the new extension?</legend>
+          <button type="button" class="option" data-correct>To get accurate digital information about what actually exists on site</button>
+          <button type="button" class="option">To detect clashes between the architectural, structural and M&amp;E models</button>
+          <button type="button" class="option">To generate several design options automatically</button>
+          <div class="result" aria-live="polite"></div>
         </fieldset>
       </div>
       <a class="back-to-top" href="#top">Back to top</a>
@@ -174,22 +167,16 @@
 
       <p class="think"><strong>Think about it:</strong> What information could be stored in the BIM model besides the shape and dimensions of the building?</p>
 
-      <div class="self-check" data-check>
-        <h3>Self-check</h3>
-        <fieldset class="question">
-          <legend>Which statement best describes a BIM model?</legend>
-          <button type="button" class="option" data-feedback="Not quite. A BIM model is more than a picture. Each component carries information too.">A realistic 3D picture used for presentations</button>
-          <button type="button" class="option" data-correct data-feedback="Correct. BIM = 3D geometry + information about each component.">3D geometry plus information about each component</button>
-          <button type="button" class="option" data-feedback="Not quite. Drawings can be produced from a BIM model, but the model itself is 3D and information-rich.">A set of 2D drawings</button>
-          <p class="feedback" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="question">
-          <legend>Which of these is non-physical information that a BIM model can store about a wall?</legend>
-          <button type="button" class="option" data-feedback="Not quite. Height is part of the wall's geometry (shape and dimensions).">Its height</button>
-          <button type="button" class="option" data-feedback="Not quite. Position is part of the geometry.">Its position on the floor plan</button>
-          <button type="button" class="option" data-correct data-feedback="Correct. A fire rating is information attached to the component, beyond its shape and size.">Its fire rating of 2 hours</button>
-          <p class="feedback" aria-live="polite"></p>
-        </fieldset>
+      <div class="check-in">
+        <h3>Check-in</h3>
+        <form class="question short-answer" id="check-bim-modelling" data-answers="information|info|data|building information|information data" data-display="information" data-explain="A BIM model holds both the shape of each component and information about it, such as material, fire rating or manufacturer.">
+          <label for="check-bim-modelling-input">Complete the phrase: BIM = 3D geometry + ______</label>
+          <div class="answer-row">
+            <input id="check-bim-modelling-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+            <button type="submit">Check</button>
+          </div>
+          <div class="result" aria-live="polite"></div>
+        </form>
       </div>
       <a class="back-to-top" href="#top">Back to top</a>
     </section>
@@ -234,22 +221,16 @@
 
       <p class="callout"><strong>Key idea:</strong> Find design conflicts digitally before they become physical problems on site.</p>
 
-      <div class="self-check" data-check>
-        <h3>Self-check</h3>
-        <fieldset class="question">
-          <legend>In the combined model, an air-conditioning duct passes through a structural beam. What is this called?</legend>
-          <button type="button" class="option" data-correct data-feedback="Correct. It's a clash: a design conflict between disciplines, found digitally so it can be fixed before construction.">A clash</button>
-          <button type="button" class="option" data-feedback="Not quite. Daylight issues come from Simulation &amp; Analysis.">A daylight issue</button>
-          <button type="button" class="option" data-feedback="Not quite. This is a conflict between the M&amp;E and structural designs, not a scanning problem.">A point cloud error</button>
-          <p class="feedback" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="question">
-          <legend>Which pair of tools is used for BIM Coordination?</legend>
-          <button type="button" class="option" data-feedback="Not quite. Revit and Archicad are BIM Modelling tools.">Revit, Archicad</button>
-          <button type="button" class="option" data-correct data-feedback="Correct. Navisworks and BIMcollab combine disciplines and detect design conflicts.">Navisworks, BIMcollab</button>
-          <button type="button" class="option" data-feedback="Not quite. Dynamo and Grasshopper are Computational Design tools.">Dynamo, Grasshopper</button>
-          <p class="feedback" aria-live="polite"></p>
-        </fieldset>
+      <div class="check-in">
+        <h3>Check-in</h3>
+        <form class="question short-answer" id="check-bim-coordination" data-answers="clash|clashes|design clash|hard clash" data-display="clash" data-explain="BIM Coordination finds clashes digitally, so they can be fixed (e.g. by rerouting the duct) before they become physical problems on site.">
+          <label for="check-bim-coordination-input">In the combined model, an air-conditioning duct runs through a structural beam. What is this kind of design conflict called? (one word)</label>
+          <div class="answer-row">
+            <input id="check-bim-coordination-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+            <button type="submit">Check</button>
+          </div>
+          <div class="result" aria-live="polite"></div>
+        </form>
       </div>
       <a class="back-to-top" href="#top">Back to top</a>
     </section>
@@ -293,21 +274,14 @@
 
       <p class="callout"><strong>Key idea:</strong> Test the building digitally before building it physically.</p>
 
-      <div class="self-check" data-check>
-        <h3>Self-check</h3>
-        <fieldset class="question">
-          <legend>The team wants to know which façade of the extension gets the most sun. Which analysis should they run?</legend>
-          <button type="button" class="option" data-feedback="Not quite. Daylight analysis checks whether indoor spaces get enough natural light.">Daylight analysis</button>
-          <button type="button" class="option" data-correct data-feedback="Correct. Solar analysis shows which parts of the building receive greater solar exposure.">Solar analysis</button>
-          <button type="button" class="option" data-feedback="Not quite. CFD analysis studies how air moves around and within the building.">Airflow (CFD) analysis</button>
-          <p class="feedback" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="question">
-          <legend>The analysis shows high solar exposure on the west façade. What is a sensible next step?</legend>
-          <button type="button" class="option" data-correct data-feedback="Correct. Refine the design based on the analysis, e.g. add shading, then test again.">Refine the design, e.g. add shading</button>
-          <button type="button" class="option" data-feedback="Not quite. The point of simulating is to fix problems before construction, not after.">Build it and fix it on site later</button>
-          <button type="button" class="option" data-feedback="Not quite. A new scan records what exists. It won't improve the proposed design.">Scan the existing building again</button>
-          <p class="feedback" aria-live="polite"></p>
+      <div class="check-in">
+        <h3>Check-in</h3>
+        <fieldset class="question" id="check-simulation-analysis" data-explain="Simulations such as daylight, energy, solar and airflow analysis let the team find and fix performance issues before construction.">
+          <legend>What is the main purpose of Simulation &amp; Analysis?</legend>
+          <button type="button" class="option">To capture the existing site as a point cloud</button>
+          <button type="button" class="option" data-correct>To test how the building will perform digitally, before it is built</button>
+          <button type="button" class="option">To combine each discipline's model into one</button>
+          <div class="result" aria-live="polite"></div>
         </fieldset>
       </div>
       <a class="back-to-top" href="#top">Back to top</a>
@@ -345,21 +319,14 @@
 
       <p class="callout"><strong>Key idea:</strong> Digital tools can help designers explore more possibilities, but the designer remains responsible for evaluating and making design decisions.</p>
 
-      <div class="self-check" data-check>
-        <h3>Self-check</h3>
-        <fieldset class="question">
-          <legend>After the AI tool generates four design options, who decides which one to take forward?</legend>
-          <button type="button" class="option" data-feedback="Not quite. The tool helps explore and compare options, but it doesn't take responsibility for the decision.">The AI tool</button>
-          <button type="button" class="option" data-feedback="Not quite. Scores inform the choice, but someone still has to weigh them against the project's needs.">Whichever option scores highest automatically</button>
-          <button type="button" class="option" data-correct data-feedback="Correct. The designer remains responsible for evaluating and making design decisions.">The designer</button>
-          <p class="feedback" aria-live="polite"></p>
-        </fieldset>
-        <fieldset class="question">
-          <legend>What is Grasshopper?</legend>
-          <button type="button" class="option" data-correct data-feedback="Correct. Grasshopper is used for parametric design in Rhino.">A parametric design tool in Rhino</button>
-          <button type="button" class="option" data-feedback="Not quite. That describes BIM Coordination tools such as Navisworks.">A clash detection tool</button>
-          <button type="button" class="option" data-feedback="Not quite. That's Reality Capture.">A laser scanner</button>
-          <p class="feedback" aria-live="polite"></p>
+      <div class="check-in">
+        <h3>Check-in</h3>
+        <fieldset class="question" id="check-computational-ai" data-explain="Computational and AI tools help explore more possibilities, but the designer remains responsible for evaluating and making design decisions.">
+          <legend>An AI tool generates four design options for the extension. Who is responsible for choosing and refining the final design?</legend>
+          <button type="button" class="option">The AI tool</button>
+          <button type="button" class="option">Whichever option scores highest, automatically</button>
+          <button type="button" class="option" data-correct>The designer</button>
+          <div class="result" aria-live="polite"></div>
         </fieldset>
       </div>
       <a class="back-to-top" href="#top">Back to top</a>
