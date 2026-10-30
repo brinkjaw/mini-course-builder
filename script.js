@@ -104,7 +104,8 @@ function showResult(question, correct, correctAnswer) {
 
   const verdict = document.createElement("p");
   verdict.className = "verdict " + (correct ? "correct" : "wrong");
-  verdict.textContent = correct ? "Correct!" : `Not quite. The answer is: ${correctAnswer}`;
+  const answerIntro = question.dataset.match === "contains" ? "Accepted answers include" : "The answer is";
+  verdict.textContent = correct ? "Correct!" : `Not quite. ${answerIntro}: ${correctAnswer}`;
 
   const explain = document.createElement("p");
   explain.textContent = question.dataset.explain;
@@ -137,6 +138,8 @@ document.querySelectorAll("fieldset.question").forEach((question) => {
 
 // Short answer: compare against the accepted answers, ignoring case,
 // punctuation, extra spaces and a leading "a", "an" or "the".
+// With data-match="contains", the answer only needs to include one of the
+// accepted words (e.g. "its fire rating" matches "fire").
 function normalise(text) {
   return text.toLowerCase()
     .replace(/[^a-z0-9\s]/g, " ")
@@ -149,12 +152,15 @@ document.querySelectorAll("form.short-answer").forEach((question) => {
   const input = question.querySelector("input");
   const button = question.querySelector("button");
   const accepted = question.dataset.answers.split("|").map(normalise);
+  const contains = question.dataset.match === "contains";
 
   question.addEventListener("submit", (event) => {
     event.preventDefault();
     const answer = normalise(input.value);
     if (!answer) return;
-    const correct = accepted.includes(answer);
+    const correct = contains
+      ? accepted.some((word) => ` ${answer} `.includes(` ${word} `))
+      : accepted.includes(answer);
     input.disabled = true;
     button.disabled = true;
     input.classList.add(correct ? "is-correct" : "is-wrong");

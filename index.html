@@ -128,11 +128,11 @@
 
       <div class="check-in">
         <h3>Check-in</h3>
-        <fieldset class="question" id="check-reality-capture" data-explain="Reality Capture digitises the existing building and site, so the extension can be designed around real conditions, not just old drawings.">
-          <legend>Why does the design team use Reality Capture before designing the new extension?</legend>
-          <button type="button" class="option" data-correct>To get accurate digital information about what actually exists on site</button>
-          <button type="button" class="option">To detect clashes between the architectural, structural and M&amp;E models</button>
-          <button type="button" class="option">To generate several design options automatically</button>
+        <fieldset class="question" id="check-reality-capture" data-explain="Drawings can be outdated or inaccurate. Reality Capture records what actually exists on site, especially where the extension will connect.">
+          <legend>The original drawings of the existing building are available. Why might the design team still use Reality Capture?</legend>
+          <button type="button" class="option">Reality Capture is required for every extension project</button>
+          <button type="button" class="option" data-correct>The building may have changed, so the drawings may not show what actually exists</button>
+          <button type="button" class="option">Reality Capture designs the connection between the two buildings automatically</button>
           <div class="result" aria-live="polite"></div>
         </fieldset>
       </div>
@@ -170,8 +170,8 @@
 
       <div class="check-in">
         <h3>Check-in</h3>
-        <form class="question short-answer" id="check-bim-modelling" data-answers="information|info|data|building information|information data" data-display="information" data-explain="A BIM model holds both the shape of each component and information about it, such as material, fire rating or manufacturer.">
-          <label for="check-bim-modelling-input">Complete the phrase: BIM = 3D geometry + ______</label>
+        <form class="question short-answer" id="check-bim-modelling" data-match="contains" data-answers="fire|material|manufacturer|maker|brand|supplier|finish|type|model|cost|price|u value|thermal|warranty|maintenance|timber|wood|glazing|acoustic|colour|color|paint|frame|hardware|ironmongery|lock|handle|location|level|weight|swing|id|mark|reference" data-display="fire rating, material, manufacturer, finish, type or cost" data-explain="A BIM model holds information about each component, not just its shape: on the slide, a door records its type, fire rating, material and manufacturer.">
+          <label for="check-bim-modelling-input">Besides its shape and size, name one kind of information a BIM model can store about a door.</label>
           <div class="answer-row">
             <input id="check-bim-modelling-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" required>
             <button type="submit">Check</button>
@@ -224,8 +224,8 @@
 
       <div class="check-in">
         <h3>Check-in</h3>
-        <form class="question short-answer" id="check-bim-coordination" data-answers="clash|clashes|design clash|hard clash" data-display="clash" data-explain="BIM Coordination finds clashes digitally, so they can be fixed (e.g. by rerouting the duct) before they become physical problems on site.">
-          <label for="check-bim-coordination-input">In the combined model, an air-conditioning duct runs through a structural beam. What is this kind of design conflict called? (one word)</label>
+        <form class="question short-answer" id="check-bim-coordination" data-answers="clash|clashes|design clash|hard clash|interference" data-display="clash" data-explain="BIM Coordination finds clashes like this digitally, so the pipe can be rerouted before it becomes a problem on site.">
+          <label for="check-bim-coordination-input">The structural and M&amp;E models are combined, and a sprinkler pipe passes through a column. What is this kind of design conflict called? (one word)</label>
           <div class="answer-row">
             <input id="check-bim-coordination-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" required>
             <button type="submit">Check</button>
@@ -277,11 +277,11 @@
 
       <div class="check-in">
         <h3>Check-in</h3>
-        <fieldset class="question" id="check-simulation-analysis" data-explain="Simulations such as daylight, energy, solar and airflow analysis let the team find and fix performance issues before construction.">
-          <legend>What is the main purpose of Simulation &amp; Analysis?</legend>
-          <button type="button" class="option">To capture the existing site as a point cloud</button>
-          <button type="button" class="option" data-correct>To test how the building will perform digitally, before it is built</button>
-          <button type="button" class="option">To combine each discipline's model into one</button>
+        <fieldset class="question" id="check-simulation-analysis" data-explain="Simulation &amp; Analysis tests the building digitally before it is built, so the design can be improved while changes are still easy and cheap.">
+          <legend>Daylight analysis shows that some classrooms in the extension will be too dark. When is the best time for the team to find this out?</legend>
+          <button type="button" class="option">After construction, by measuring light levels in the finished rooms</button>
+          <button type="button" class="option" data-correct>During design, by testing the BIM model</button>
+          <button type="button" class="option">During Reality Capture of the existing building</button>
           <div class="result" aria-live="polite"></div>
         </fieldset>
       </div>
